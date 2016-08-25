@@ -1,0 +1,81 @@
+初步认识SVG
+SVG可缩放矢量图形（Scalable Vector Graphics）是基于可扩展标记语言（XML），用于描述二维矢量图形的一种图形格式。SVG是W3C(World Wide Web ConSor—tium国际互联网标准组织)在2000年8月制定的一种新的二维矢量图形格式，也是规范中的网络矢量图形标准。SVG严格遵从XML语法，并用文本格式的描述性语言来描述图像内容，因此是一种和图像分辨率无关的矢量图形格式。
+一.SVG图形格式优点有：
+  基于XML
+  采用文本来描述对象
+  具有交互性和动态性
+  完全支持DOM
+  SVG较GIF、JPEG的优势
+  任意放缩
+  文本独立
+  较小文件
+  超强显示效果
+  超级颜色控制
+  交互X和智能化
+二、SVG文件创建
+右键→桌面→新建文本文档→写入/拷贝SVG相关XML代码→保存→修改后缀名为svg→over
+现在问题是如何才能获取我需要的SVG代码呢？
+三、SVG总结
+如果我们要实现单层的线性渐变或是径向渐变，CSS3当是首选。当我们要实现一些复杂的多层效果的时候，这时显然需要借助于强大的SVG背景了。我们可以在SVG创建编辑器上编辑出我们想要的效果，然后拷贝其生成代码，然后，一切就松松的了。
+基本上，photoshop可以创造出来的各种效果，SVG都能实现，这玩意，超强的。可惜，IE6~8浏览器不支持（需要装Chrome框架才可以）。得，可能还要等些时日。
+<!DOCTYPE html>
+<html>
+<body>
+<h1>My first SVG</h1>
+<svg>
+   <circle cx="100" cy="50" r="40" stroke="black" stroke-width="2" fill="red" />
+   <circle cx="200" cy="100" r="50" stroke="blue" stroke-width="1" fill="grey" />
+</svg> 
+</body>
+</html>
+简单的 SVG 实例
+一个简单的SVG图形例子：
+这里是SVG文件（SVG文件的保存与SVG扩展）：
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <circle cx="100" cy="50" r="40" stroke="black"
+  stroke-width="2" fill="red" />
+</svg>
+SVG 代码解析：
+第一行包含了 XML 声明。请注意 standalone 属性！该属性规定此 SVG 文件是否是"独立的"，或含有对外部文件的引用。
+standalone="no" 意味着 SVG 文档会引用一个外部文件 - 在这里，是 DTD 文件。
+第二和第三行引用了这个外部的 SVG DTD。该 DTD 位于 "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"。该 DTD 位于 W3C，含有所有允许的 SVG 元素。
+SVG 代码以 <svg> 元素开始，包括开启标签 <svg> 和关闭标签 </svg> 。这是根元素。width 和 height 属性可设置此 SVG 文档的宽度和高度。version 属性可定义所使用的 SVG 版本，xmlns 属性可定义 SVG 命名空间。
+SVG 的 <circle> 用来创建一个圆。cx 和 cy 属性定义圆中心的 x 和 y 坐标。如果忽略这两个属性，那么圆点会被设置为 (0, 0)。r 属性定义圆的半径。
+stroke 和 stroke-width 属性控制如何显示形状的轮廓。我们把圆的轮廓设置为 2px 宽，黑边框。
+fill 属性设置形状内的颜色。我们把填充颜色设置为红色。
+关闭标签的作用是关闭 SVG 元素和文档本身。
+注释：所有的开启标签必须有关闭标签！
+SVG 在 HTML 页面
+使用 <embed> 标签
+<embed>:
+优势：所有主要浏览器都支持，并允许使用脚本
+缺点：不推荐在HTML4和XHTML中使用（但在HTML5允许）
+语法:
+<embed src="circle1.svg" type="image/svg+xml" />
+使用 <object> 标签
+<object>:
+优势：所有主要浏览器都支持，并支持HTML4，XHTML和HTML5标准
+缺点：不允许使用脚本。
+语法:
+<object data="circle1.svg" type="image/svg+xml"></object>
+使用 <iframe> 标签
+<iframe>:
+优势：所有主要浏览器都支持，并允许使用脚本
+缺点：不推荐在HTML4和XHTML中使用（但在HTML5允许）
+语法:
+<iframe src="circle1.svg"></iframe>
+直接在HTML嵌入SVG代码
+在Firefox、Internet Explorer9、谷歌Chrome和Safari中，你可以直接在HTML嵌入SVG代码。
+注意：SVG不能直接嵌入到Opera。
+实例
+<html>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <circle cx="100" cy="50" r="40" stroke="black"
+  stroke-width="2" fill="red"/>
+</svg>
+</body>
+</html>
